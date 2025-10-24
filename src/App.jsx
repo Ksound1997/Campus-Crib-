@@ -5,7 +5,6 @@ import Marketplace from "./pages/Marketplace";
 import { QuizProvider } from "./QuizContext";
 import Overview from "./pages/Overview";
 import Accomodation from "./pages/Accomodation";
-
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Signup from "./pages/Signup";
@@ -15,6 +14,7 @@ import Community from "./pages/Community";
 import Messages from "./pages/Messages";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
+import PaymentScreen from "./pages/PaymentScreen";
 
 function App() {
   return (
@@ -35,7 +35,11 @@ function App() {
             <Route index element={<Overview />} />
             <Route path="accomodation" element={<Accomodation />} />
             <Route path="marketplace" element={<Marketplace />} />
-            <Route path="dues" element={<Dues />} />
+            {/* <Route path="dues" element={<Dues />} /> */}
+            <Route path="dues">
+              <Route index element={<Dues />} />
+              <Route path="payment" element={<PaymentScreen />} />
+            </Route>
             <Route path="orders" element={<Cart />} />
             <Route path="messages" element={<Messages />} />
             <Route path="community" element={<Community />} />

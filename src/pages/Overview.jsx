@@ -87,7 +87,62 @@ const Overview = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <section className="p-5">
+        <div>
+          <h2>Dashboard</h2>
+          <p>Welcome back! Here’s what’s happening in your cribs</p>
+        </div>
+        <div className="flex items-center bg-white p-8 mt-8  mb-5">
+          <div>
+            <p className="text-gray-600 text-sm">Total Spent</p>
+            <p className="text-gray-900 text-2xl font-bold mt-1">
+              {userData.totalSpent}
+            </p>
+          </div>
+
+          <div></div>
+
+          <div></div>
+        </div>
+        <ProgressCard progress={userData.progress} />
+
+        <div className="grid mt-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StatCard
+            title="Active Bookings"
+            value={userData.activeBookings}
+            subtitle={`${userData.activeBookings} Bookings`}
+          />
+          <StatCard
+            title="Recent Cart Activity"
+            value={userData.recentCartItems}
+            subtitle={`${userData.recentCartItems} Items`}
+          />
+          <StatCard
+            title="Saved Items"
+            value={userData.savedItems}
+            subtitle={`${userData.savedItems} Saved`}
+          />
+          <StatCard
+            title="Completed Orders"
+            value={userData.completedOrders}
+            subtitle={`${userData.completedOrders} Items`}
+          />
+          <StatCard
+            title="Pending Dues"
+            value={userData.pendingDues}
+            subtitle={`${userData.pendingDuesCount} Pending`}
+            color="red"
+          />
+          <StatCard
+            title="Processed Dues"
+            value={userData.processedDues}
+            subtitle={`${userData.processedDuesCount} Processed`}
+            color="green"
+          />
+        </div>
+        
+      </section>
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card title="Account Summary">
           <div className="space-y-4">
             <div>
@@ -111,13 +166,13 @@ const Overview = () => {
             {userData.joinedDate}
           </p>
         </Card>
-      </div>
+      </div> */}
 
       {/* Progress */}
-      <ProgressCard progress={userData.progress} />
+      {/* <ProgressCard progress={userData.progress} /> */}
 
       {/* Stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <StatCard
           title="Active Bookings"
           value={userData.activeBookings}
@@ -150,7 +205,7 @@ const Overview = () => {
           subtitle={`${userData.processedDuesCount} Processed`}
           color="green"
         />
-      </div>
+      </div> */}
     </>
   );
 };
