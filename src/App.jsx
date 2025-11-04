@@ -15,6 +15,9 @@ import Messages from "./pages/Messages";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import PaymentScreen from "./pages/PaymentScreen";
+import DetailsScreen from "./pages/DetailsScreen";
+import Bookings from "./components/Bookings";
+import ProductDetails from "./components/ProductDetails";
 
 function App() {
   return (
@@ -33,9 +36,19 @@ function App() {
             }
           >
             <Route index element={<Overview />} />
-            <Route path="accomodation" element={<Accomodation />} />
-            <Route path="marketplace" element={<Marketplace />} />
-            {/* <Route path="dues" element={<Dues />} /> */}
+            {/* <Route path="accomodation" element={<Accomodation />} /> */}
+             <Route path="accomodation">
+              <Route index element={<Accomodation />} />
+              <Route path="bookings" element={<Bookings />} />
+              <Route path="details/:id" element={<DetailsScreen />} />
+            </Route>
+           
+
+              <Route path="marketplace">
+              <Route index element={<Marketplace />} />
+              <Route path="product/:id" element={<ProductDetails />} />
+            </Route>
+            
             <Route path="dues">
               <Route index element={<Dues />} />
               <Route path="payment" element={<PaymentScreen />} />

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import QuizContext from "../QuizContext";
 import Nav from "../components/Nav";
@@ -17,25 +17,22 @@ const Home = () => {
 
   const navigate = useNavigate();
 
- console.log(User);
- 
+  console.log(User);
+
+  if (User) {
+    return <Navigate to="/dashboard" replace />;
+  }
 
   return (
     <>
-      {User ? (
-        <Dashboard/>
-      ) : (
-        <>
-          <Nav />
-          <Hero />
-          <Features />
-          <Stuff />
-          <Workings />
-          <Workwithus />
-          <ContactUs />
-          <Footer />
-        </>
-      )}
+      <Nav />
+      <Hero />
+      <Features />
+      <Stuff />
+      <Workings />
+      <Workwithus />
+      <ContactUs />
+      <Footer />
     </>
   );
 };
